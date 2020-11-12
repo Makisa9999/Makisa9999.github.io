@@ -16,7 +16,7 @@ function checkLogin(u, p) {
 }
 
 
-console.log(checkLogin("user1", "pword1"))
-console.log(checkLogin("user1", "pword2"))
-console.log(checkLogin("user3", "pword3"))
-console.log(checkLogin("user5", "pword5"))
+//console.log(checkLogin("user1", "pword1"))
+//console.log(checkLogin("user1", "pword2"))
+//console.log(checkLogin("user3", "pword3"))
+//console.log(checkLogin("user5", "pword5"))
