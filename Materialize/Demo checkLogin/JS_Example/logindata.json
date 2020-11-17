@@ -1,0 +1,14 @@
+[
+	{
+		"id" : "mario.j@ucc.on.ca",
+		"password" : "mario.j"
+	},
+	{
+		"id": "oliver.t@ucc.on.ca",
+		"password": "oliver.t"
+    },
+    {
+        "id": "andrew.r@ucc.on.ca",
+        "password": "andrew.r"
+    }
+]

@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript W3Schools</title>
+</head>
+<body id="back">
+
+<button type="button" id="demo" onclick = "myFunction()">Click me!</button>
+<p id="demo1" onclick="changeParagraph()">This is what content of this paragraph.</p>
+<button type="button" id="ba" onclick="changeBackground()">Blue Background White Text</button>
+
+<script>
+    function myFunction () {
+        document.getElementById('demo').style.background = "black";
+        document.getElementById('demo').style.color = "white";
+        document.getElementById('demo').style.border = "none";
+        document.getElementById('demo').style.padding = "35px";
+    }
+    function changeParagraph () {
+        document.getElementById('demo1').innerHTML = "Paragraph has been changed!"
+    }
+    function changeBackground () {
+        document.getElementById('back').style.background = "Blue"
+        document.getElementById('back').style.color = "white"
+    }
+</script>
+</body>
+</html>
