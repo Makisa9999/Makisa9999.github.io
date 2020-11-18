@@ -42,9 +42,15 @@ LOGGED IN INFORMATION
   	<script>
     
 
-    	$(document).ready(function(){
+		$(document).ready(function(){
       		$('.modal').modal();
-      		$('.sidenav').sidenav();
+
+			  $('#login-form').submit(function (e) {
+				  	e.preventDefault();
+					console.log("SUMBIT")
+					
+					$('#modal-login').modal("close");
+			  })
 
    		});
    	</script>

@@ -1,6 +1,26 @@
-var uNames = ["user1", "user2", "user3"]
-var pWords = ["pword1", "pword2", "pword3"]
+var uNames = []
+var pWords = []
 
+var url = "https://raw.githubusercontent.com/Makisa9999/Makisa9999.github.io/main/Materialize/Demo%20checkLogin/JS_Example/logindata.json"
+
+//fetch -> return a promise, an object that you can check before you do things
+//then only run if fetch is done.
+
+fetch(url, {
+
+    })
+    .then(response => response.json())
+    .then(result => {
+        console.log(result)
+
+        for (i = 0; i < result.length; i = i + 1) {
+            uNames.push(result[i]["id"])
+            pWords.push(result[i]["password"])
+        }
+        console.log(uNames)
+        console.log(pWords)
+});
+    
 
 function checkLogin(u, p) {
     val = false;
@@ -14,7 +34,6 @@ function checkLogin(u, p) {
     }
     return val
 }
-
 
 //console.log(checkLogin("user1", "pword1"))
 //console.log(checkLogin("user1", "pword2"))

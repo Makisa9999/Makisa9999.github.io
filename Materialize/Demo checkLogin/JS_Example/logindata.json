@@ -10,5 +10,9 @@
     {
         "id": "andrew.r@ucc.on.ca",
         "password": "andrew.r"
-    }
+	},
+	{
+		"id": "mr.miskew@ucc.on.ca",
+		"password": "mr.miskew"
+	}
 ]
