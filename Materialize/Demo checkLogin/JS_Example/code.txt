@@ -1,12 +1,6 @@
 var uNames = []
 var pWords = []
 
-var currU = ""
-
-var landingPage = document.getElementById('landing')
-var homePage = document.getElementById('home')
-
-
 var url = "https://raw.githubusercontent.com/Makisa9999/Makisa9999.github.io/main/Materialize/Demo%20checkLogin/JS_Example/logindata.json"
 
 //fetch -> return a promise, an object that you can check before you do things
