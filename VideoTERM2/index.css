@@ -1,0 +1,21 @@
+.container {
+    margin: 0 auto;
+    max-width: 1280px;
+    width: 90%;
+}
+
+
+  
+.yellow {
+    background-color: #4B0082;
+
+}
+.btn {
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    margin-left: 200px;
+}
