@@ -4,7 +4,7 @@ var button1 = document.getElementById('button1')
 var formdiv = document.getElementById('formdiv')
 var landingpage = document.getElementById('landing-page')
 var incorrectpassword = document.getElementById('incorrect-password')
-var logoutbutton = document.getElementById('logout-button')
+
 
 button1.addEventListener('click', (e) => {
     formdiv.style.display = "block"
@@ -17,7 +17,7 @@ button.addEventListener('click', (e) => {
     p = document.getElementById('password').value
     result = checkLogin(u, p)
     if (result === false) {
-        incorrectpassword.innerHTML = "Incorrect Password or Email"
+        incorrectpassword.innerHTML = "Incorrect Password"
         incorrectpassword.style.color = "red"
         incorrectpassword.style.border = "1px solid red"
         incorrectpassword.style.paddingLeft = "4px"
@@ -27,11 +27,6 @@ button.addEventListener('click', (e) => {
         formdiv.style.display = "none"
         landingpage.style.display = "block"
     }
-})
-
-logoutbutton.addEventListener('click', (e) => {
-    landingpage.style.display = "none"
-    button1.style.display = "block"
 })
 
 var uNames = []

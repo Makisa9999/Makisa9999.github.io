@@ -1,3 +1,49 @@
 .login {
     display: none;
 }
+.landingpage {
+    display: none;
+}
+.logout {
+    float: left;
+    margin-top: -2.5%;
+    margin-left: 95%;
+}
+
+.TitleOnRight {
+    float: left;
+}
+
+#logout-button {
+    -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 10px;
+   color: #FFFFFF;
+   font-family: Arial;
+   font-size: 15px;
+   font-weight: 300;
+   padding: 10px;
+   background-color: #61BD4F;
+   -webkit-box-shadow: 1px 1px 13px 0 #000000;
+   -moz-box-shadow: 1px 1px 13px 0 #000000;
+   box-shadow: 1px 1px 13px 0 #000000;
+   text-shadow: 0 1px 10px #000000;
+   border: solid #61BD4F 1px;
+   text-decoration: none;
+   display: inline-block;
+   cursor: pointer;
+   text-align: center;  
+}
+#logoutbutton:hover {
+    border: solid #61BD4F 1px;
+   background: #61BD4F;
+   background-image: -webkit-linear-gradient(top, #61BD4F, #8ECF82);
+   background-image: -moz-linear-gradient(top, #61BD4F, #8ECF82);
+   background-image: -ms-linear-gradient(top, #61BD4F, #8ECF82);
+   background-image: -o-linear-gradient(top, #61BD4F, #8ECF82);
+   background-image: -webkit-gradient(to bottom, #61BD4F, #8ECF82);
+   -webkit-border-radius: 20px;
+   -moz-border-radius: 20px;
+   border-radius: 20px;
+   text-decoration: none;
+}

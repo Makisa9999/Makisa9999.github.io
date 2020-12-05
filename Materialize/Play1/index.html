@@ -67,23 +67,23 @@
  	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js">
 	</script>
-	<script src="login_fake_class2.js"></script>
-  	<script>
-		var landingPage = document.getElementById('landing')
+    <script src="login_fake_class2.js"></script>   
+    <script>
+        var landingPage = document.getElementById('landing')
 		var homePage = document.getElementById('home')
 		var wrongPass = document.getElementById('wrong-password')
 		var registerButton = document.getElementById('register-button')
 		var registerEmail = document.getElementById('register-email')
-		var registerPassword = document.getElementById('register-password')
+        var registerPassword = document.getElementById('register-password')
+        
+        $(document).ready(function(){
+            $('modal').modal();
+        })
 
-		$(document).ready(function(){
-      		$('.modal').modal();
-		});
-
-		$('#login-form').submit(function (e) {
+        $('#login-form').submit(function (e) {
 			e.preventDefault()
-			console.log("Submit")
-			u = document.getElementById('login-email').value
+            console.log("Submit")
+            u = document.getElementById('login-email').value
 			p = document.getElementById('login-password').value
 			console.log(u)
 			console.log(p)
@@ -102,52 +102,7 @@
 			}
 			$('#modal-login').modal("close");
 		  })
-		$('#logout-form').submit(function (e) {
-			e.preventDefault()
-			console.log('Logging out')
-			landingPage.style.display = "block"
-			homePage.style.display = "none"
-			wrongPass.style.display = "none"
-		})
-		$('#register-form').submit(function (e) {
-			e.preventDefault()
-			console.log("Registering")
-			var email1 = document.getElementById('register-email').value
-			var email2 = document.getElementById('confirm-email').value
-			var password1 = document.getElementById('register-password').value
-			var password2 = document.getElementById('confirm-password').value
-			var emailTorF = false
-			var passwordTorF = false
-			if (email1 === email2) {
-				emailTorF = true
-				console.log(emailTorF)
-			} else {
-				emailTorF = false
-				console.log(emailTorF)
-			}
-			if (password1 === password2) {
-				passwordTorF = true
-				console.log(passwordTorF)
-			} else {
-				passwordTorF = false
-				console.log(passwordTorF)
-			}
-			if (emailTorF === true && passwordTorF === true) {
-				//Allow to register
-				registerButton.addEventListener('click', (e) => {
-					newEmail = registerEmail.value
-					newPassword = registerPassword.value
-					uNames.push(newEmail)
-					pWords.push(newPassword)
-					console.log(uNames)
-					console.log(pWords)
-				})
-				//Make a new login account
-				//Add it to json file
-				
-			}
-		})
-   	</script>
-    
+        
+    </script>
 </body>
 </html>
