@@ -28,7 +28,23 @@ for k in range(0, len(names), 1):
         newheight = float(height[k]) / 1000
         allInMeters.append(newheight)
         names2.append(names[k])
-print(names2)
-print(allInMeters)
-
+'''
 #Don't know how to select the biggest height
+maxvalue = max(allInMeters)
+aa = allInMeters.index(maxvalue)
+print(names2[aa])
+'''
+#['Jim', 'Sally', 'Joey', 'Roel', 'Karl', 'Melanie', 'Jill', 'Sam', 'Joel', 'Roger', 'Karen', 'Marnie']
+#[1.45,    1.87,   1.064, 1.523,   1.34,    1.89,      1.54,  1.33,  1.877,  1.783,    1.78,    1.79]
+namesFinal = []
+values = []
+
+for i in range(0, 5):
+    max1 = max(allInMeters)
+    indexof = allInMeters.index(max1)
+    values.append(allInMeters[indexof])
+    namesFinal.append(names2[indexof])
+    allInMeters.remove(allInMeters[indexof])
+    names2.remove(names2[indexof])
+for i in range(len(namesFinal)):
+    print(namesFinal[i])
