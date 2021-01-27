@@ -10,3 +10,4 @@ lst = []
 
 for i in range(0, numberOfItems, 1):
     lst.append(int(sublist[2+i]))
+

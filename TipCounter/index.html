@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Counter</title>
+</head>
+<body>
+
+    <h1>The Tip Calculator</h1>
+    <form id="form-submit">
+        <label for="restaurant">How satified are you with restaurant service?</label>
+        <select name="restaurant" id="restaurantSatisfaction">
+            <option value="10">Excellent</option>
+            <option value="8">Very Good</option>
+            <option value="6">Good</option>
+            <option value="5">Satisfactory</option>
+            <option value="2">Bad</option>
+            <option value="0">Very Bad</option>
+        </select>
+        <br \><br \>
+        <label for="input-field">How much was your bill? (Any currency, the result will be returned in the currency you put in)</label><br \><br \> 
+        <input type="text" id="input-field">
+        <br \><br \>
+        <input type="submit">
+        <p id="result"></p>
+    </form>
+    <script src="program.js"></script>
+</body>
+</html>

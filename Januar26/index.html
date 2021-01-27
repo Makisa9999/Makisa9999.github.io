@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Mario Jovanovic">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Mario Jovanovic</title>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center">Logo</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li><a href="#modal1" class="modal-trigger" id ="login_nav">Login</a></li>
+                <li><a href="#" id="logout_nav" style="display:none;">Logout</a></li>
+                <li><a href="#" id="elements_nav" style="display:none;">Elements</a></li>
+                <li><a href="#" id="elements_game_nav" style="display:none;">Elements Game</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <form id="login_form" autocomplete="off">
+                <div class="input-field">
+                    <input id="user_name" type="text" autocomplete="" required>
+                    <label for="user_name">User Name</label>
+                </div>
+                <div class="input-field">
+                    <input type="password" id="password" autocomplete="" required>
+                    <label for="password">Password</label>
+                </div>
+                <button class="btn teal darken-2 z-depth-0">Sign In</button>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-close waves-effect waves-green btn-flat">Create New User</a>
+        </div>
+    </div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<!-- Compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        options = {opacity: 0.1}
+        //opacity dims the background
+        var elems = document.querySelectorAll('.modal');
+        var instances = M.Modal.init(elems, options);
+  });
+</script>
+<script src="auth.js"></script>
+</body>
+</html>
