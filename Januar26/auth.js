@@ -1,39 +1,53 @@
-// We take every element in the nav bar and make it constant though the whole document
-const login_form = document.querySelector("#login_form")
-const login_nav = document.getElementById('login_nav')
-const logout_nav = document.getElementById('logout_nav')
-const elements_nav = document.getElementById('elements_nav')
-const elements_game_nav = document.getElementById('elements_game_nav')
+//In this file we deal with anything that has to do with authenticaing someone. 
 
-login_form.addEventListener("submit", function (e) {
-    e.preventDefault()
+//CLASS GOAL:
+//If you authenticate using option 1 it becomes a challenge loading new pages
+//since you cannot pass along the information (easily)
 
-    uname = login_form["user_name"].value
-    pword = login_form["password"].value
-    console.log(uname)
-    console.log(pword)
-
-    //Option 1: Verify against a predefined list - for learning.
-    //Cross check credentials against a list in web page
-
-    logout_nav.style.display = "block"
-    elements_nav.style.display = "block"
-    elements_game_nav.style.display = "block"
-    login_nav.style.display = "none"
-
-    //add an event listener to logout nav
-    //In the function swap the display of the elements
+//EXTENSION BASED ON SITUATION:
+//If you authenticate using firebase your browser gets "authenticated" this means
+//when a page is loaded you run a function that checks to see if the person is valid
+//and if they are it updates the page. 
 
 
-    //Option 2: Send to Firebase for authorization - for real.
-    const modal = document.querySelector('#modal1')
-    M.Modal.getInstance(modal).close()
-})
+const login_form = document.querySelector("#login-form")
+const login_nav = document.getElementById("login_nav")
+const logout_nav = document.getElementById("logout_nav")
+const the_elements_nav = document.getElementById("the_elements_nav")
+const learn_more_nav = document.getElementById("learn_more_nav")
 
-logout_nav.addEventListener('click', function (e) {
-    logout_nav.style.display = "none"
-    elements_nav.style.display = "none"
-    elements_game_nav.style.display = "none"
-    login_nav.style.display = "block"
+login_form.addEventListener('submit',(e) => {
+	e.preventDefault() //stops page from reloading
+	
+	console.log(login_form["user_name"].value)
+	console.log(login_form["user_password"].value)
 
-})
+
+	//Option 1: Verify against a predefined list - for learning
+
+	login_nav.style.display = "none"
+	logout_nav.style.display = "block"
+	the_elements_nav.style.display = "block"
+	learn_more_nav.style.display = "block"
+
+
+	//Option 2: Send to Firebase for authorization - for real. 
+	
+
+	//General
+	const modal = document.querySelector('#login_modal'); 
+	M.Modal.getInstance(modal).close();
+	login_form.reset()
+
+});
+
+logout_nav.addEventListener('click',(e) => {
+
+	login_nav.style.display = "block"
+	logout_nav.style.display = "none"
+	the_elements_nav.style.display = "none"
+	learn_more_nav.style.display = "none"
+	
+
+
+});
