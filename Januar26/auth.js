@@ -1,53 +1,71 @@
-//In this file we deal with anything that has to do with authenticaing someone. 
+//Accessed the objects that I am going to need to do various things
+//related to authentication
+const login_form = document.querySelector("#login_form")
 
-//CLASS GOAL:
-//If you authenticate using option 1 it becomes a challenge loading new pages
-//since you cannot pass along the information (easily)
-
-//EXTENSION BASED ON SITUATION:
-//If you authenticate using firebase your browser gets "authenticated" this means
-//when a page is loaded you run a function that checks to see if the person is valid
-//and if they are it updates the page. 
-
-
-const login_form = document.querySelector("#login-form")
 const login_nav = document.getElementById("login_nav")
 const logout_nav = document.getElementById("logout_nav")
-const the_elements_nav = document.getElementById("the_elements_nav")
-const learn_more_nav = document.getElementById("learn_more_nav")
+const elements_nav = document.getElementById("elements_nav")
+const elements_game_nav = document.getElementById("elements_game_nav")
 
-login_form.addEventListener('submit',(e) => {
-	e.preventDefault() //stops page from reloading
-	
-	console.log(login_form["user_name"].value)
-	console.log(login_form["user_password"].value)
+users = ["Mario", "Mario1", "Mario2"]
+pwords = ["Mario", "Mario1", "Mario2"]
+
+login_form.addEventListener('submit', (e) => {
+	console.log(e)
+	e.preventDefault()
+
+	uname = login_form["user_name"].value
+	pword = login_form["user_password"].value
+
+	console.log(uname)
+	console.log(pword)
 
 
 	//Option 1: Verify against a predefined list - for learning
+    //Cross check credentials against a list in web page
 
-	login_nav.style.display = "none"
-	logout_nav.style.display = "block"
-	the_elements_nav.style.display = "block"
-	learn_more_nav.style.display = "block"
+    for (let i = 0; i <= users.length; i = i + 1) {
+        if (uname === users[i]) {
+            
+            if (pword === pwords[i]) {
+                logout_nav.style.display = "block"
+	            elements_nav.style.display = "block"
+	            elements_game_nav.style.display = "block"
+	            login_nav.style.display = "none"
+            } else {
+                alert("Invalid User")
+                break;
+            }
+        }
+    }
+    
+    for (let i = 0; i <= users.length; i = i + 1) {
+        if ((uname === users[i]) && (pword === pwords[i])) {
+            logout_nav.style.display = "block"
+	        elements_nav.style.display = "block"
+	        elements_game_nav.style.display = "block"
+	        login_nav.style.display = "none"
+        }
+    }
+
+	
 
 
 	//Option 2: Send to Firebase for authorization - for real. 
 	
 
-	//General
-	const modal = document.querySelector('#login_modal'); 
+	const modal = document.querySelector('#login_modal')
 	M.Modal.getInstance(modal).close();
-	login_form.reset()
 
 });
 
-logout_nav.addEventListener('click',(e) => {
 
-	login_nav.style.display = "block"
+//add an event listener to logout_nav
+//In teh function swap the display of the various element
+logout_nav.addEventListener('click', (e) => {
 	logout_nav.style.display = "none"
-	the_elements_nav.style.display = "none"
-	learn_more_nav.style.display = "none"
-	
-
+	elements_nav.style.display = "none"
+	elements_game_nav.style.display = "none"
+	login_nav.style.display = "block"
 
 });

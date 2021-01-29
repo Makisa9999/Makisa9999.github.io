@@ -100,12 +100,6 @@ switch_to_register_button_in_login_form.addEventListener("click", function (e) {
     switch_to_login_form.style.display = "block"
 })
 
-    
-login_button_in_navbar.addEventListener("click", (e) => {
-// how to remove the button of back to login from the form
-    
-})
-
 switch_to_login_form.addEventListener("click", (e) => {
     login_form.style.display = "block"
     register_form.style.display = "none"
