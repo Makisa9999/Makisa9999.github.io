@@ -46,6 +46,28 @@ function checkNewAccount (u, uc, p, pc) {
     }
 }
 
+function signIn(u, p) {
+    firebase.auth().signInWithEmailAndPassword(u, p)
+  .then((userCredential) => {
+    // Signed in
+    var user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    var errorCode = error.code;
+    var errorMessage = error.message;
+  });
+}
+
+function signOut() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+      }).catch((error) => {
+        // An error happened.
+      });
+      
+}
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Constants for making other code
@@ -112,15 +134,13 @@ switch_to_login_form.addEventListener("click", (e) => {
 
 // When sign in button is pressed on the form, then this will close the modal
 sign_in_button_in_the_login_form.addEventListener("click", function (e) {
+    signIn(username_Sign_In_Form.value, password_Sign_In_Form.value)
     M.Modal.getInstance(modal_for_forms).close()
 })
 
 register_form.addEventListener('submit', (e) => {
     e.preventDefault()
-    M.Modal.getInstance(modal_for_forms).close()
-})
-
-create_new_account_button_register_form.addEventListener('click', function (e) {
     checkNewAccount(username_register_form.value, username_confirm_register_form.value, password_register_form.value, password_confirm_register_form.value)
+    M.Modal.getInstance(modal_for_forms).close()
 })
 
