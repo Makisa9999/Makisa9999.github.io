@@ -43,7 +43,6 @@ function checkNewAccount (u, uc, p, pc) {
         var errorMessage = error.message;
         // ..
       });
-      alert("You created a new account!")
     }
 }
 
@@ -58,7 +57,6 @@ function signIn(u, p) {
     var errorCode = error.code;
     var errorMessage = error.message;
   });
-  alert("You are signed in!")
 }
 
 function signOut() {
