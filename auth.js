@@ -135,6 +135,7 @@ switch_to_login_form.addEventListener("click", (e) => {
 // When sign in button is pressed on the form, then this will close the modal
 sign_in_button_in_the_login_form.addEventListener("click", function (e) {
     signIn(username_Sign_In_Form.value, password_Sign_In_Form.value)
+    console.log("Mario Jovanovic")
     M.Modal.getInstance(modal_for_forms).close()
 })
 
