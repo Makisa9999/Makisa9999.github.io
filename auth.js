@@ -43,6 +43,7 @@ function checkNewAccount (u, uc, p, pc) {
         var errorMessage = error.message;
         // ..
       });
+      alert("You created a new account!")
     }
 }
 
@@ -57,6 +58,7 @@ function signIn(u, p) {
     var errorCode = error.code;
     var errorMessage = error.message;
   });
+  alert("You are signed in!")
 }
 
 function signOut() {
@@ -136,14 +138,12 @@ switch_to_login_form.addEventListener("click", (e) => {
 sign_in_button_in_the_login_form.addEventListener("click", function (e) {
     e.preventDefault()
     signIn(username_Sign_In_Form.value, password_Sign_In_Form.value)
-    alert("You are signed in!")
     M.Modal.getInstance(modal_for_forms).close()
 })
 
 register_form.addEventListener('submit', (e) => {
     e.preventDefault()
     checkNewAccount(username_register_form.value, username_confirm_register_form.value, password_register_form.value, password_confirm_register_form.value)
-    alert("You created a new account!")
     M.Modal.getInstance(modal_for_forms).close()
 })
 
