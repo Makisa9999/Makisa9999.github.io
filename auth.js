@@ -22,10 +22,27 @@ function checkLogin (u, p) {
     return false
 }
 
+function writeUserAccount(userId, username, password) {
+    database.ref('users/' + userId).update(
+    {
+      username: username,
+      password: password,
+    }
+  )};
+
 function checkNewAccount (u, uc, p, pc) {
     if ((u === uc) && (p === pc)) {
-        uNames.push(u)
-        pWords.push(p)
+        firebase.auth().createUserWithEmailAndPassword(u, p)
+      .then((userCredential) => {
+        // Signed in 
+        var user = userCredential.user;
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // ..
+      });
     }
 }
 
@@ -80,18 +97,18 @@ switch_to_login_form.addEventListener("click", (e) => {
 })
 
 // Here we are listening to submit of that form
-login_form.addEventListener("submit", (e) => {
+//login_form.addEventListener("submit", (e) => {
     // Preventing reload on form submit
-    e.preventDefault()
+    //e.preventDefault()
     // Checking if we use the values that we put in the input fields are username and password which are going to unlock the account
-    if (checkLogin(username_Sign_In_Form.value, password_Sign_In_Form.value) === true) {
+    //if (checkLogin(username_Sign_In_Form.value, password_Sign_In_Form.value) === true) {
         // If function checkLogin returns true, this code will proceed.
-        window.open("proceed.html")
-    } else {
+        //window.open("proceed.html")
+    //} else {
         // If the function returns false, then it will just simply reload the page and it will kick the user out from his account
-        location.reload()
-    }
-})
+        //location.reload()
+    //}
+//})
 
 // When sign in button is pressed on the form, then this will close the modal
 sign_in_button_in_the_login_form.addEventListener("click", function (e) {
@@ -106,3 +123,4 @@ register_form.addEventListener('submit', (e) => {
 create_new_account_button_register_form.addEventListener('click', function (e) {
     checkNewAccount(username_register_form.value, username_confirm_register_form.value, password_register_form.value, password_confirm_register_form.value)
 })
+
