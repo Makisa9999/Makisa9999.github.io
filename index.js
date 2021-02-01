@@ -34,5 +34,6 @@ contact_me_form.addEventListener("submit", function (e) {
     console.log(date_input)
     var which_lang_input = which_language_input.value
     console.log(which_lang_input)
+    window.open('mailto:mario.jovanovic@ucc.on.ca?subject=Programming Request&body=Dear,%0D%0AMy email is: ' + email_input + '%0D%0A I need you to: ' + message_input + '%0D%0A This should be finished by: ' + date_input + '%0D%0A I will need you to use: ' + which_lang_input + ' for this program. %0D%0A Thank you so much, %0D%0A' + email_input);
 })
 
