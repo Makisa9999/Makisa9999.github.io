@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  var firebaseConfig = {
+    apiKey: "AIzaSyCaIgvlItJRs1Bl4HBx_xPr5ln-x-_ftWc",
+    authDomain: "dpcs-database-console.firebaseapp.com",
+    databaseURL: "https://dpcs-database-console-default-rtdb.firebaseio.com",
+    projectId: "dpcs-database-console",
+    storageBucket: "dpcs-database-console.appspot.com",
+    messagingSenderId: "71249812827",
+    appId: "1:71249812827:web:58e0072ff74db22b600e7e",
+    measurementId: "G-3W3J5T4JTX"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+
+    var database = firebase.database();
+    function socialSingleValueRead() {
+        return firebase.database().ref('/users/01').once('value').then((snapshot) => {
+            var username = (snapshot.val() && snapshot.val().username) || 'Anonymous';
+        // ...
+        });
+        // [END rtdb_social_single_value_read]
+    }
+    console.log(socialSingleValueRead())
+    var starCountRef = firebase.database().ref('posts/' + postId + '/starCount');
+    starCountRef.on('value', (snapshot) => {
+    const data = snapshot.val();
+    updateStarCount(postElement, data);
+    });
+</script>
+
+</body>
+</html>
