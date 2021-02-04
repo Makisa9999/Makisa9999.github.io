@@ -330,31 +330,26 @@
    		finishedProjectsInPython
    		//does something that accesses and updates name from the database
    		
-  	}).then((result) => {
-  		console.log("************"+result)
-  		//does 
-    });
-
-    
-  	x.then((val) => {
-  		console.log("Database updated!")
-  		console.log("*****",name)
+  	}).then((val) => {
   		
   		firebase.database().ref().once('value').then((snapshot) => {
-  			console.log(snapshot.val())
 
   		});
   	}).then((snapshot) => {
         dataDB =  database.ref('/finishedProjectsInPython/').on('value',(snapshot) => {
     
         data =snapshot.val()
-        console.log(data)
+
         dataSTR = ""
+
         for (i = 0; i < data.length; i = i + 1) {
+
             dataSTR = dataSTR + createCard(data[i])
         
         }
+
             projetDisplay.innerHTML = dataSTR
+    
         })
     });
 
@@ -366,16 +361,14 @@
         //Name --> stringify
         //Static --> It is not invoked with an instance - JSON is the package where stringify lives. 
         dataSTR = JSON.stringify(data);
-        console.log(dataSTR)
+
         dataJSON = JSON.parse(dataSTR);
-        console.log("*****")
-        console.log(dataJSON)
 
     }
 
     function createCard(elemOBJ) {
 
-        console.log(elemOBJ)
+
         const card = ` 	
             <div class="col s12 m6 l4">
                 <div class="card small yellow darken-4">
