@@ -50,7 +50,9 @@ function signIn(u, p) {
     firebase.auth().signInWithEmailAndPassword(u, p)
   .then((userCredential) => {
     // Signed in
+
     var user = userCredential.user;
+    window.location.href="proceed.html"
     // ...
   })
   .catch((error) => {

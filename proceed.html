@@ -1,0 +1,409 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>My Work</title>
+    <style>
+        .Python {
+            width: 100px;
+            height: 100px;
+            margin-left: 11px; 
+            float: left;
+            border: 1px solid black;
+        }
+        .text1 {
+            position: absolute;
+            top: 30%;
+            left: 17.5%;
+        }
+        .text2 {
+            position: absolute;
+            top: 30%;
+            left: 24.5%;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+		<div class="indigo darken-2 nav-wrapper">
+            <div class="container">
+                <a href="#" class="brand-logo center">MY PROJECTS</a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li><a href="#" id="elements_nav" onclick="signOut()">LOGOUT</a></li>
+                </ul>
+            </div>  
+		</div>
+	</nav>
+	<div class = "container" >
+		
+        <h1 class="center">MY PROJECTS</h1>
+        <div>
+            <div class="Python yellow darken-4">
+                <p class="text1 black-text">Python</p>
+            </div>
+            <div class="Python indigo">
+                <p class="text2 black-text">JavaScript</p>
+            </div>
+            
+        </div>
+		<br><br><br><br><br><br>
+		<div class="row" id = "projetDisplay"></div>
+        <div>
+            <h4 class="center">There are many more Python and JavaScript programs that I coded, but it would be too long to put them all here.</h4>
+            <a class="center" href="https://github.com/Makisa9999"><h5>Here is a link to all my programs and repositories so you can check it out!</h5></a>
+            <h5 class="center">On this website you can find a lot of programming languages, from C to Python and HTML, CSS and JavaScript.</h5>
+        </div>
+	</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-app.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.2.5/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-database.js"></script>
+<script>
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyDyqdmCQvtfUnkSmD8sLbacDzmLqWuRYOM",
+        authDomain: "materializecsswebsite.firebaseapp.com",
+        projectId: "materializecsswebsite",
+        storageBucket: "materializecsswebsite.appspot.com",
+        messagingSenderId: "384528797795",
+        appId: "1:384528797795:web:8b9a10b0c5b987999ee856",
+        measurementId: "G-K7YDSKERKY"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+
+    var database = firebase.database()
+
+    var finishedProjectsInPython = [
+		{
+			"name": "addStringsSmallLarge.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/addStringsSmallLarge.py",
+			"description": "This is a program that is going to add a shorter string to a longer one."
+		},
+		{
+			"name": "allEven.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/allEven.py",
+			"description": "This ia a program that is going to check if a number is even or odd."
+        },
+        {
+			"name": "base2To10.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/base2To10.py",
+			"description": "This ia a program (application) that is going to convert binary number to denary, in other words it will transfer a number from base 2 to base 10."
+        },
+        {
+			"name": "base2To10_justCode.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/base2To10_justCode.py",
+			"description": "This ia a program that is going to convert binary number to denary, in other words it will transfer a number from base 2 to base 10."
+        },
+        {
+			"name": "base2ToHEX.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/base2ToHEX.py",
+			"description": "This is a program that is going to convert binary nmber to HEX code. In other words, it is going to transfer from base 2 to HEX code."
+        },
+        {
+			"name": "base10ToBase2.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/base10ToBase2.py",
+			"description": "This is a program that is going to convert denary numbers to binary values. In other words, it is going to take a base 10 number and it is going to convert it to base 2 code."
+        },
+        {
+			"name": "everyName.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/everyName.py",
+			"description": "This is going to take a list with some names and it is going to return Welcome + name[i]."
+        },
+        {
+			"name": "findAbsoluteDifference.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findAbsoluteDifference.py",
+			"description": "This is a program that is going to find an absolute difference between two numbers."
+        },
+        {
+			"name": "findCircleArea.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findCircleArea.py",
+			"description": "This is a program that is going to take in a radius of the circle and it is going to find the area."
+        },
+        {
+			"name": "findHyp.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findHyp.py",
+			"description": "This is a program that is going to take in two sides of a right angle triangle and it is going to find a hypothenuse."
+        },
+        {
+			"name": "findIntervalSum.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findIntervalSum.py",
+			"description": "This is going to find take in two numbers and it is going to add up every number between those two numbers."
+        },
+        {
+			"name": "findLargeSum.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findLargeSum.py",
+			"description": "This is a program that is going to take 3 numbers. After that it will find the biggest one and the second biggest one, and it will add them up."
+        },
+        {
+			"name": "findModSum1.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findModSum1.py",
+			"description": "This is a program that is going to take in a list with numbers, and then it will add up all the numbers divisible by 3."
+        },
+        {
+			"name": "findModSum2.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findModSum2.py",
+            "description": "This is a program that is going to take 3 inputs. First input is going to be a list with numbers. Second number is going to be a lower boundary. Third number is going to be an upper boundary. Then it will add all the numbers that are in the list between those two numbers."
+        },
+        {
+			"name": "findModSum3.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findModSum3.py",
+			"description": "This is a program that is going to take a list (data) and two numbers (a, b) and going to check every number in data if it is a multiply of a and b. If a number is a multiple of a AND b then it is going to add it to the sum."
+        },
+        {
+			"name": "findModSum4.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findModSum4.py",
+			"description": "This is a program that is going to take a list of float values. Then it is going to take every digit in that list and add it to a sum."
+        },
+        {
+			"name": "findReversed.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findReversed.py",
+			"description": "This is a program that is going to print the numbers in reverse."
+        },
+        {
+			"name": "findSum.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findSum.py",
+			"description": "This is a program that is going to find a sum of two numbers."
+        },
+        {
+			"name": "findSum1.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findSum1.py",
+			"description": "This is a program that is going to take a number and then it is going to add up everynumber from 1 to that number."
+        },
+        {
+			"name": "findSumDigits.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/findSumDigits.py",
+			"description": "This is a program that is going to find a sum of the digits for numbers between 0 and 1000."
+        },
+        {
+			"name": "gatheringInfo.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/gatheringInfo.py",
+            "description": "This is a program that is going to ask you for an input to enter a symbol of any stock on Yahoo Finance. Then it is going to find a value of that stock for every second and going to upload that value to a .txt file with time of that stock price."
+        },
+        {
+			"name": "HEXToBase2.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/HEXToBase2.py",
+			"description": "This is a program that is going to convert HEX code to a binary number. In other words it is going to take a HEX string and it is going to write the same number in base 2."
+        },
+        {
+			"name": "isEven.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/isEven.py",
+			"description": "This is a program that is going to check if a number is even in another way."
+        },
+        {
+			"name": "isPrime.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/isPrime.py",
+			"description": "This is a program that is going to check if a number is prime or not."
+        },
+        {
+			"name": "listOneTwoThree.py",
+			"github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/listOneTwoThree.py",
+            "description": "This is a program that is going to merge two lists by taking one element of the first list and then taking one element from the second list and merge those lists into a third."
+        },
+        {
+			"name": "listSort.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/listSort.py",
+            "description": "This is a program that is going to sort a list of numbers from the smallest to the largest."
+        },
+        {
+			"name": "mergeStrings.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/mergeStrings.py",
+            "description": "This is a program that is going to take two lists and merge the strigns in that list to one list. Check it out to see what is a really good touch to this code."
+        },
+        {
+			"name": "missing_charMJ.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/missing_charMJ.py",
+            "description": "This is a program that is going to take a string and a number. After that is is going to remove a character at an index you put in as a number."
+        },
+        {
+			"name": "myFirstCalculator.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/myFirstCalculator.py",
+            "description": "This is a very ineficient calculator that can add, mutiply, divide and subtract numbers from 1 to 50. This calculator is made only with if statements."
+        },
+        {
+			"name": "negativeOrPositive.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/negativeOrPositive.py",
+            "description": "This is a program that is going to take a list and check every number in a list if it is a positive or a negative number."
+        },
+        {
+			"name": "oddOrEven.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/oddOrEven.py",
+            "description": "This is a program that is going to take an input from a user and it is going to check if it is a odd or a even number."
+        },
+        {
+			"name": "perfectNumberFinder.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/perfectNumberFinder.py",
+            "description": "This is a program that is going to check if a number is perfect. Perfect number is: https://bit.ly/2YHwfsB"
+        },
+        {
+			"name": "productID.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/productID.py",
+            "description": "This is a program that is going to ask you for what you want to buy and then it is going to give you a value that represents the price of that product."
+        },
+        {
+			"name": "pythonPasswordGenerator.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/pythonPasswordGenerator.py",
+            "description": "This is a program that is going to make you a secure password which cannot be cracked in a lifetime. LMG penetration testers can crack a 8 character password in 8 hours according to https://bit.ly/3tpCZcN. But this program will make you a 16 character password which will take 6.5 trillion years for them to crack it. "
+        },
+        {
+			"name": "readFileToList.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/readFileToList.py",
+            "description": "This is a program that is going to take a file and read it."
+        },
+        {
+			"name": "reverseNumber.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/reverseNumber.py",
+            "description": "This is a program that will reverse a number."
+        },
+        {
+			"name": "reverseStr.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/reverseStr.py",
+            "description": "This is a program that will reverse a string."
+        },
+        {
+			"name": "reverseWordA.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/reverseWordA",
+            "description": "This is a program that will reverse a word."
+        },
+        {
+			"name": "reverseWordB.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/reverseWordB.py",
+            "description": "This is a program that will take a list and reverse the strings in the list and then concatenate those strings."
+        },
+        {
+			"name": "roundToN.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/roundToN.py",
+            "description": "This is a program that will take a float and then it is going to round that float to the number of decimals given by the second number."
+        },
+        {
+			"name": "scaleElementsA1stApproach.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/scaleElementsA1stApproach.py",
+            "description": "This is going to take an integer and a list and then it is going to multiply every number in a list with the integer."
+        },
+        {
+			"name": "scaleElementsB.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/scaleElementsB.py",
+            "description": "This is going to take an integer and a list and then it is going to multiply every number in a list with the integer using a loop."
+        },
+        {
+			"name": "solveCircleRadius.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/solveCircleRadius.py",
+            "description": "This is going to take an area of a circle and then it is going to find the radius of the same circle."
+        },
+        {
+			"name": "sumDigits.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/sumDigits.py",
+            "description": "This is a program that is going to take a multi digit number and then it is going to add the digits of that number together."
+        },
+        {
+			"name": "sumDigitsA.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/sumDigitsA.py",
+            "description": "This is a program that is going to take a multi digit number and then it is going to add the digits of that number together 2nd Approach."
+        },
+        {
+			"name": "toMeters.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/toMeters.py",
+            "description": "This is a program that is going to take a measurment as two parts first is the number and then it is a unit. At the end it is going to convert it to meters."
+        },
+        {
+			"name": "wifiCracker.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/wifiCracker.py",
+            "description": "This is a program that is going to find a password of a wifi that you have previously typed in, unfortunately, this program only works on windows."
+        },
+        {
+			"name": "writeListToFile.py",
+            "github": "https://github.com/Makisa9999/DP_CS_Code_MJovanovic/blob/main/tools/writeListToFile.py",
+            "description": "This is a program that is going to take a list and it is going to write that list in a new file."
+        }
+
+    ]   
+    
+    const projetDisplay = document.getElementById("projetDisplay")
+
+
+
+    x = database.ref().set({
+   		finishedProjectsInPython
+   		//does something that accesses and updates name from the database
+   		
+  	}).then((result) => {
+  		console.log("************"+result)
+  		//does 
+    });
+
+    
+  	x.then((val) => {
+  		console.log("Database updated!")
+  		console.log("*****",name)
+  		
+  		firebase.database().ref().once('value').then((snapshot) => {
+  			console.log(snapshot.val())
+
+  		});
+  	}).then((snapshot) => {
+        dataDB =  database.ref('/finishedProjectsInPython/').on('value',(snapshot) => {
+    
+        data =snapshot.val()
+        console.log(data)
+        dataSTR = ""
+        for (i = 0; i < data.length; i = i + 1) {
+            dataSTR = dataSTR + createCard(data[i])
+        
+        }
+            projetDisplay.innerHTML = dataSTR
+        })
+    });
+
+    function demoIdea(data) {
+
+        //What it does --> Creates a stirng version of data
+        //Return Type --> String
+        //Parameter --> A JSON object
+        //Name --> stringify
+        //Static --> It is not invoked with an instance - JSON is the package where stringify lives. 
+        dataSTR = JSON.stringify(data);
+        console.log(dataSTR)
+        dataJSON = JSON.parse(dataSTR);
+        console.log("*****")
+        console.log(dataJSON)
+
+    }
+
+    function createCard(elemOBJ) {
+
+        console.log(elemOBJ)
+        const card = ` 	
+            <div class="col s12 m6 l4">
+                <div class="card small yellow darken-4">
+                    <div class="card-content white-text">
+                        <span class="card-title">${elemOBJ["name"]}</span>
+                        <p>${elemOBJ["description"]}</p>
+                    </div>
+                    <div class="card-action">
+                        <a href="${elemOBJ["github"]}" target="_blank" class="black-text">SOURCE CODE</a>
+                    </div>
+                </div>
+            </div>  `
+
+        return card
+    }    	
+    function signOut() {
+    firebase.auth().signOut().then(() => {
+        // Sign-out successful.
+        window.location.href = "index.html"
+      }).catch((error) => {
+        // An error happened.
+      });
+      
+    }
+</script>
+
+
+</body>
+</html>
