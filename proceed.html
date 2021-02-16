@@ -83,7 +83,7 @@
 
             </div>
 		    <br><br><br><br><br><br>
-		    <div class="row" id = "projetDisplay"></div>
+		    <div class="row" id = "projectDisplay"></div>
             <div>
                 <h4 class="center">There are many more Python and JavaScript programs that I coded, but it would be too long to put them all here.</h4>
                 <a class="center" href="https://github.com/Makisa9999"><h5>Here is a link to all my programs and repositories so you can check it out!</h5></a>
@@ -527,7 +527,7 @@
 
     ]   
     
-    const projetDisplay = document.getElementById("projetDisplay")
+    const projectDisplay = document.getElementById("projectDisplay")
     // Uploading finishedProjectsInPython object to the database
     x = database.ref("/finishedProjectsInPython/").set({
    		finishedProjectsInPython
@@ -540,9 +540,9 @@
   		});
   	}).then((snapshot) => {
         // For making all the icons on proceed page and all the cards
-        dataDB =  database.ref('/finishedProjectsInPython/finishedProjectsInPython/').on('value',(snapshot) => {
+        dataDB = database.ref('/finishedProjectsInPython/finishedProjectsInPython/').on('value',(snapshot) => {
     
-        data =snapshot.val()
+        data = snapshot.val()
 
         dataSTR = ""
 
@@ -552,7 +552,7 @@
         
         }
 
-            projetDisplay.innerHTML = dataSTR
+            projectDisplay.innerHTML = dataSTR
     
         })
     });
